@@ -16,7 +16,7 @@ var apiRequest = require('./app/api');
 
 
 apiRequest();
-// setInterval(apiRequest, 60000);
+// setInterval(apiRequest, 60000); //uncomment to run last.fm API check on interval
 
 
 
