@@ -53,7 +53,7 @@ var apiRequest = function() {
 		  							if (storedDate.isBefore(apiDate)) {
 		  								
 		  								Song.update(
-										{name: apiName},
+										{'name': apiName, 'artist.artist': apiArtist},
 										{ $inc: {playcount: 1}, $set: {date: apiDate.toISOString()}},
 										function(err, doc) {
 											if (err) throw err;
@@ -91,7 +91,7 @@ var apiRequest = function() {
 
 		  							else {
 
-		  								console.log("Song already exists!");
+		  								// console.log("Song already exists!");
 
 		  								next(i+1);
 
