@@ -32,7 +32,7 @@ songSchema.methods.artwork = function(cb2){
 	console.log(thisArtist, term, thisImage);
 	var queryCallback = function() {
 		return function (err, res) {
-			if (res.length) {
+			if (res.length && res[0].image.indexOf('/public') >= 0) {
 				cb2(res[0].image);
 				console.log('art found!');
 			} else {

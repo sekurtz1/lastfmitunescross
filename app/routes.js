@@ -13,7 +13,7 @@ app.get('/', function(req, res) {
 //api layer 
 
 
-// recent tracks - returns object with 9 most recent listened to tracks
+// recent tracks - returns object with 12 most recent listened to tracks
 // if listening to more than one track on an album, returns '(Multiple Tracks)' in array
 app.get('/api/getrecent', function(req, res) {
 	Song.find({}).sort('-date').limit(200).exec(function(err,songs) {
@@ -25,8 +25,8 @@ app.get('/api/getrecent', function(req, res) {
 
 			
 				if (i < songs.length) {
-					//check if the results array has less than 9 entries
-					if(results.length < 9) {
+					//check if the results array has less than 12 entries
+					if(results.length < 12) {
 						//do something
 						var entry = songs[i];
 						var uniqueKey = entry.artist.artist + entry.album.album; //concat artist and name to compare against results array
